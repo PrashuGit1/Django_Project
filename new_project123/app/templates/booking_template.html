@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Booking</title>
+</head>
+<body>
+    <h1>Book a Table</h1>
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="guest_name">Name:</label>
+        <input type="text" name="guest_name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label for="visit_date">Visit Date:</label>
+        <input type="date" name="visit_date" required><br>
+
+        <label for="visit_time">Visit Time:</label>
+        <input type="time" name="visit_time" required><br>
+
+        <label for="guests_count">Number of Guests:</label>
+        <input type="number" name="guests_count" required><br>
+
+        <label for="restaurant">Select Restaurant:</label>
+        <select name="restaurant">
+            {% for restaurant in restaurants %}
+                <option value="{{ restaurant.id }}">{{ restaurant.name }} - Table Size: {{ restaurant.table_size }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Book Now</button>
+    </form>
+</body>
+</html>

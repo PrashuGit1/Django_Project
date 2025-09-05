@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Theme Park Table Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f8ff;
+            padding: 2rem;
+        }
+
+        .container {
+            background: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 1rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Book a Table</h1>
+        <form method="post">
+            <!-- Candidates will add {% csrf_token %} -->
+            
+            <label for="restaurant">Select Restaurant</label>
+            <select name="restaurant" id="restaurant" required>
+                <option value="">-- Choose a Restaurant --</option>
+                <option value="Pirate's Galley">Pirate's Galley</option>
+                <option value="Dino Bites Grill">Dino Bites Grill</option>
+                <option value="Rocket Diner">Rocket Diner</option>
+                <option value="Jungle Feast">Jungle Feast</option>
+                <option value="Kingdom Café">Kingdom Café</option>
+            </select>
+
+            <label for="name">Your Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="date">Date of Visit</label>
+            <input type="date" name="date" id="date" required>
+
+            <label for="time">Time</label>
+            <input type="time" name="time" id="time" required>
+
+            <label for="people">Number of Guests</label>
+            <input type="number" name="people" id="people" min="1" max="20" required>
+
+            <button type="submit">Book Table</button>
+        </form>
+
+        <div class="note">
+            Book your table ahead of time to avoid waiting in line during your park adventure!
+        </div>
+    </div>
+</body>
+</html>
